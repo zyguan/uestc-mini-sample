@@ -1,0 +1,69 @@
+\documentclass[openany]{book}
+
+%\usepackage{pagegrid}
+%\pagegridsetup{top-left,step=5bp}
+
+\usepackage{uestc-mini/core}
+\usepackage{uestc-mini/floats}
+\usepackage{uestc-mini/extras}
+\usepackage{uestc-mini/tocpatch}
+
+\usepackage[perpage]{footmisc}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{paralist}
+\usepackage{amsmath}
+\usepackage{calc}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{pdfpages}
+\usepackage[caption=false,font=footnotesize]{subfig}
+
+\hypersetup{hidelinks}
+
+
+\begin{document}
+
+% 封面 & 扉页 
+%% 请自行导出并替换（注意pages参数）
+\includepdf[pages=-]{ch/title-pages}
+
+
+% 摘要
+\pagenumbering{Roman}
+
+%% 中文摘要
+\setFrontHeadStyle{摘要}\fancypagestyle{plain}{\setFrontHeadStyle{摘要}}
+\include{ch/abstract/zh}
+
+\newpage
+
+%% 英文摘要
+\setFrontHeadStyle{ABSTRACT}\fancypagestyle{plain}{\setFrontHeadStyle{ABSTRACT}}
+\include{ch/abstract/en}
+
+\newpage
+
+
+% 目录
+\setFrontHeadStyle{目录}
+\fancypagestyle{plain}{\setFrontHeadStyle{目录}}
+\tableofcontents
+
+\newpage
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+% 正文
+\pagenumbering{arabic}
+
+\setMainHeadStyle
+\fancypagestyle{plain}{\setMainHeadStyle}
+
+\include{ch/01/intro}
+\include{ch/02/basic}
+\include{ch/03/analysis}
+\include{ch/references}
+\include{ch/acknowledgements}
+
+\end{document}
