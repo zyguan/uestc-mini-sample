@@ -6,7 +6,27 @@
 \usepackage{uestc-mini/core}
 \usepackage{uestc-mini/floats}
 \usepackage{uestc-mini/extras}
-\usepackage{uestc-mini/tocpatch}
+
+\usepackage{titletoc}
+\setcounter{tocdepth}{2}
+\titlecontents{chapter}
+              [4em]
+              {\heiti}
+              {\contentslabel{4em}}
+              {\hspace*{-4em}}
+              {\titlerule*[1pc]{.}\contentspage}
+\titlecontents{section}
+              [4em]
+              {\heiti}
+              {\contentslabel{2em}}
+              {\hspace*{-2em}}
+              {\titlerule*[1pc]{.}\contentspage}
+\titlecontents{subsection}
+              [6em]
+              {\heiti}
+              {\contentslabel{3em}}
+              {\hspace*{-3em}}
+              {\titlerule*[1pc]{.}\contentspage}
 
 \usepackage[perpage]{footmisc}
 \usepackage{graphicx}
