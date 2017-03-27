@@ -5,5 +5,7 @@ install:
   - sudo ./install-tl-ubuntu
   - sudo /opt/texbin/tlmgr init-usertree
   - sudo /opt/texbin/tlmgr update --all
+before_script:
+  - export PATH=/opt/texbin:$PATH
 script:
   - latexmk -xelatex -interaction=nonstopmode thesis.tex
