@@ -7,26 +7,35 @@
 \usepackage{uestc-mini/floats}
 \usepackage{uestc-mini/extras}
 
+\usepackage{newtxtext,newtxmath}
+
 \usepackage{titletoc}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
 \titlecontents{chapter}
               [4em]
               {\heiti}
               {\contentslabel{4em}}
               {\hspace*{-4em}}
-              {\titlerule*[1pc]{.}\contentspage}
+              {\titlerule*[4pt]{.}\contentspage}
 \titlecontents{section}
               [4em]
-              {\heiti}
+              {\songti}
               {\contentslabel{2em}}
               {\hspace*{-2em}}
-              {\titlerule*[1pc]{.}\contentspage}
+              {\titlerule*[4pt]{.}\contentspage}
 \titlecontents{subsection}
               [6em]
-              {\heiti}
-              {\contentslabel{3em}}
-              {\hspace*{-3em}}
-              {\titlerule*[1pc]{.}\contentspage}
+              {\songti}
+              {\contentslabel{2.8em}}
+              {\hspace*{-2.8em}}
+              {\titlerule*[4pt]{.}\contentspage}
+\titlecontents{subsubsection}
+              [8em]
+              {\songti}
+              {\contentslabel{3.5em}}
+              {\hspace*{-3.5em}}
+              {\titlerule*[4pt]{.}\contentspage}
 
 \usepackage[perpage]{footmisc}
 \usepackage{graphicx}
@@ -39,51 +48,52 @@
 \usepackage{pdfpages}
 \usepackage[caption=false,font=footnotesize]{subfig}
 
-\hypersetup{hidelinks}
+\captionsetup{format=default,justification=centering}
 
+\hypersetup{hidelinks}
+\def\UrlBreaks{\do\/\do-}
+
+\def\evenmark{电子科技大学硕士学位论文}
 
 \begin{document}
 
-% 封面 & 扉页 
-%% 请自行导出并替换（注意pages参数）
-\includepdf[pages=-]{ch/title-pages}
+% 封面
+%\includepdf[pages=-]{ch/title-pages}
+\title{时域积分方程时间步进算法及其快速算法研究}
+\maketitle
 
 
 % 摘要
 \pagenumbering{Roman}
 
-%% 中文摘要
-\setFrontHeadStyle{摘要}\fancypagestyle{plain}{\setFrontHeadStyle{摘要}}
+\setFrontPageStyle{摘要}
 \include{ch/abstract/zh}
-
 \newpage
+\clearpage{\pagestyle{empty}\cleardoublepage}
 
-%% 英文摘要
-\setFrontHeadStyle{ABSTRACT}\fancypagestyle{plain}{\setFrontHeadStyle{ABSTRACT}}
+\setFrontPageStyle{ABSTRACT}
 \include{ch/abstract/en}
-
 \newpage
+\clearpage{\pagestyle{empty}\cleardoublepage}
 
 
 % 目录
-\setFrontHeadStyle{目录}
-\fancypagestyle{plain}{\setFrontHeadStyle{目录}}
+\setFrontPageStyle{目录}
 \tableofcontents
-
 \newpage
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
 
 % 正文
 \pagenumbering{arabic}
-
-\setMainHeadStyle
-\fancypagestyle{plain}{\setMainHeadStyle}
+\setMainPageStyle{\evenmark}
 
 \include{ch/01/intro}
 \include{ch/02/basic}
 \include{ch/03/analysis}
-\include{ch/references}
 \include{ch/acknowledgements}
+\include{ch/references}
+\include{ch/achievements}
+
 
 \end{document}
